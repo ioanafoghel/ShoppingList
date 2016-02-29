@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProductList</string>
+    <string name="action_settings">Settings</string>
+    <string name="clicked">Clicked</string>
+    <string name="menu_Lidl">Lidl</string>
+
+</resources>

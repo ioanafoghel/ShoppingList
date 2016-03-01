@@ -13,12 +13,6 @@
     tools:context="com.example.ioana.productlist.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText android:id="@+id/inputSearch"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Search products.."
-        android:inputType="textVisiblePassword"/>
-
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"

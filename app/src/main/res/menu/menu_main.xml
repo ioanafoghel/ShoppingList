@@ -3,8 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context="com.example.ioana.productlist.MainActivity">
     <group android:checkableBehavior="single">
-    <item android:title="@string/menu_Lidl"
-        android:id="@+id/menu_stores"
-        android:orderInCategory="1"/>
+        <item
+            android:id="@+id/menu_Save"
+            android:orderInCategory="1"
+            app:showAsAction="never"
+            android:title="@string/Save"/>
+        <item
+            android:id="@+id/menu_Remove"
+            android:orderInCategory="2"
+            app:showAsAction="never"
+            android:title="@string/Empty_Basket"/>
+        <item android:id="@+id/action_search"
+            android:title="@string/action_search"
+            android:icon="@drawable/search_icon"
+            app:showAsAction="ifRoom|collapseActionView"
+            app:actionViewClass="android.support.v7.widget.SearchView" />
 </group>
 </menu>

@@ -18,38 +18,17 @@ import java.util.List;
  * Created by Ioana on 24/02/2016.
  */
 
-    public class ProductAdapter extends ArrayAdapter<String> {
-  /*  public ProductAdapter(Context context,int resource, List<Product> products) {
+    public class ProductAdapter extends ArrayAdapter<Product> {
+   public ProductAdapter(Context context,int resource, List<Product> products) {
         super(context,resource, products);
-    }*/
-
-
-    int[] imgs={};
-    String[] productNames={};
-    String[] productDescription ={};
-    double[] productPrice={};
-    double[] offers ={};
-    Context c;
-    LayoutInflater inflater;
-
-    public class ViewHolder{
-        TextView productName;
-        TextView productDescription;
-        TextView productPrice;
-        TextView offer;
-        ImageView img;
+       this.c=context;
     }
-    public ProductAdapter(Context context, String [] productNames, String [] productDescription, double[] productPrice, double[] offers, int[] imgs) {
-            super(context, R.layout.model, productNames);
-            this.c=context;
-            this.productNames=productNames;
-            this.productDescription=productDescription;
-            this.productPrice=productPrice;
-            this.offers=offers;
-            this.imgs=imgs;
-        }
+    LayoutInflater inflater;
+    Context c;
+
+
    public View getView(int position, View convertView, ViewGroup parent){
-   /*    if (convertView == null) {
+      if (convertView == null) {
             inflater=(LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView=inflater.inflate(R.layout.model, null);
 
@@ -76,29 +55,6 @@ import java.util.List;
                         Toast.LENGTH_SHORT).show();
             }
         });
-        return convertView;
-    }*/
-
-       if(convertView==null)
-        {
-            inflater=(LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView=inflater.inflate(R.layout.model, null);
-
-        }
-
-        final ViewHolder holder=new ViewHolder();
-        holder.productName=(TextView) convertView.findViewById(R.id.productName);
-        holder.productDescription=(TextView) convertView.findViewById(R.id.productDescription);
-        holder.productPrice=(TextView) convertView.findViewById(R.id.productPrice);
-        holder.offer=(TextView) convertView.findViewById(R.id.offerPrice);
-        holder.img=(ImageView) convertView.findViewById(R.id.imageView1);
-
-        holder.productName.setText(productNames[position]);
-        holder.productDescription.setText(productDescription[position]);
-        holder.productPrice.setText("Price: "+productPrice[position]);
-        holder.offer.setText("Offer: "+offers[position]);
-        holder.img.setImageResource(imgs[position]);
-
         return convertView;
     }
 }

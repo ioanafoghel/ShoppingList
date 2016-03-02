@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".AppActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -18,6 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:label="@string/first_view"
+            android:name=".App2Activity"
+            android:theme="@style/AppTheme">
+    </activity>
+           <!-- <activity
+                android:launchMode="singleTop"
+                android:name=".SearchResultActivity" >
+                <intent-filter >
+                    <action android:name="android.intent.action.SEARCH" />
+                </intent-filter>
+                <meta-data
+                    android:name="android.app.searchable"
+                    android:resource="@layout/searchable" />
+            </activity>-->
     </application>
-
 </manifest>

@@ -1,7 +1,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:context="com.example.ioana.productlist.MainActivity">
+    tools:context=".App2Activity">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_Save"
@@ -13,6 +13,7 @@
             android:orderInCategory="2"
             app:showAsAction="never"
             android:title="@string/Empty_Basket"/>
+
         <item android:id="@+id/action_search"
             android:title="@string/action_search"
             android:icon="@drawable/search_icon"

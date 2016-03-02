@@ -9,13 +9,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class App2Activity extends AppCompatActivity {
     private Service service= new Service();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
         final ListView listView = (ListView) findViewById(R.id.listView);
         ProductAdapter productArrayAdapter
@@ -26,20 +26,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
-                Toast.makeText(MainActivity.this,
+                Toast.makeText(App2Activity.this,
                         listView.getItemAtPosition(position) + " " +
                                 getText(R.string.clicked), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+     /* SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));*/
+
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (id == R.id.action_search) {
+            onSearchRequested();
+            return true;
+        }
 
         if (id == R.id.menu_Save) {
             Toast.makeText(getApplicationContext(),
@@ -48,5 +58,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+        appData.putString("hello", "world");
+        startSearch(null, false, appData, false);
+        return true;
+    }
+
 }
 

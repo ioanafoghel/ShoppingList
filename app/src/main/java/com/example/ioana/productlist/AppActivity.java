@@ -33,7 +33,7 @@ public class AppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, App2Activity.class);
+                Intent intent = new Intent(context, PopUpActivity.class);
                 startActivity(intent);
             }
         });

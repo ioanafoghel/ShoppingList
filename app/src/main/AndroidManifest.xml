@@ -19,6 +19,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:label="@string/action_popup"
+            android:name=".PopUpActivity"
+            android:theme="@android:style/android:Theme.Holo.Light.Dialog">
+        </activity>
+        <activity
             android:label="@string/first_view"
             android:name=".App2Activity"
             android:theme="@style/AppTheme">

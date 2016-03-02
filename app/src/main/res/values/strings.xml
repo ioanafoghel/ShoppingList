@@ -8,6 +8,7 @@
     <string name="action_search">Search product</string>
     <string name="action_label">Search product</string>
     <string name="action_hint">Search product</string>
+    <string name="action_popup">Enter list name</string>
 
 
 </resources>

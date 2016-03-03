@@ -18,16 +18,15 @@ import java.util.List;
  * Created by Ioana on 24/02/2016.
  */
 
-    public class ProductAdapter extends ArrayAdapter<Product> {
-   public ProductAdapter(Context context,int resource, List<Product> products) {
-        super(context,resource, products);
-       this.c=context;
-    }
+public class ProductAdapter extends ArrayAdapter<Product> {
     LayoutInflater inflater;
     Context c;
+    public ProductAdapter(Context context,int resource, List<Product> products) {
+       super(context,resource, products);
+       this.c=context;
+    }
 
-
-   public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent){
       if (convertView == null) {
             inflater=(LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView=inflater.inflate(R.layout.model, null);

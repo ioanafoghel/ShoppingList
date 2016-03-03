@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -22,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="2dp"
         android:orientation="horizontal"
-        android:weightSum="3" >
+        android:weightSum="3">
 
         <Button
             android:layout_width="match_parent"
@@ -30,7 +31,6 @@
             android:text="Create Shopping List"
             android:id="@+id/createButton"
             android:background="@color/white"/>
-
     </LinearLayout>
 
     <Button
@@ -44,5 +44,17 @@
         android:layout_alignEnd="@+id/linearLayout2"
         android:layout_alignLeft="@+id/linearLayout2"
         android:layout_alignStart="@+id/linearLayout2"
+        android:background="@color/white"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shops"
+        android:id="@+id/shopsButton"
+        android:layout_below="@+id/listsButton"
+        android:layout_alignLeft="@+id/listsButton"
+        android:layout_alignStart="@+id/listsButton"
+        android:layout_alignRight="@+id/listsButton"
+        android:layout_alignEnd="@+id/listsButton"
         android:background="@color/white"/>
 </RelativeLayout>

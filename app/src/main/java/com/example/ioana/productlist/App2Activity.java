@@ -31,9 +31,9 @@ public class App2Activity extends AppCompatActivity {
                                 getText(R.string.clicked), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
-@Override
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
@@ -43,6 +43,7 @@ public class App2Activity extends AppCompatActivity {
 
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -56,6 +57,7 @@ public class App2Activity extends AppCompatActivity {
                     "List saved", Toast.LENGTH_LONG).show();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
     public boolean onSearchRequested() {
@@ -64,6 +66,5 @@ public class App2Activity extends AppCompatActivity {
         startSearch(null, false, appData, false);
         return true;
     }
-
 }
 

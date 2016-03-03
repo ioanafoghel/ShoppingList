@@ -24,18 +24,14 @@ public class AppActivity extends AppCompatActivity {
     }
 
     public void addListenerOnButton() {
-
         final Context context = this;
-
         button = (Button) findViewById(R.id.createButton);
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(context, PopUpActivity.class);
                 startActivity(intent);
             }
         });
-}
+    }
 }

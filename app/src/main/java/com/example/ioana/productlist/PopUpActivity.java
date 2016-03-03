@@ -17,8 +17,6 @@ public class PopUpActivity extends Activity {
     Button SaveBtn;
     Button CancelBtn;
 
-
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,23 +27,19 @@ public class PopUpActivity extends Activity {
     public void addListenerOnButton() {
 
         final Context context = this;
-
         SaveBtn = (Button) findViewById(R.id.saveButton);
-
         SaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(context, App2Activity.class);
                 startActivity(intent);
             }
         });
-        CancelBtn = (Button) findViewById(R.id.cancelButton);
 
+        CancelBtn = (Button) findViewById(R.id.cancelButton);
         CancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(context, AppActivity.class);
                 startActivity(intent);
             }

@@ -9,7 +9,6 @@ import java.util.List;
 public class Service {
         private List<Product> products = new ArrayList<Product>();
 
-
         public Service() {
             String[] productNames={"Kinder Bueno","Kinder Chocolate 4", "Kinder Chocolate 8", "Kinder Country","Kinder Delice","Kinder Pinguin","Kinder Schoko-Bons","Kinder Surprise"};
             String[] productDescriptions={"23g","100g","200g","30g","50g","100g","230g","12g"};

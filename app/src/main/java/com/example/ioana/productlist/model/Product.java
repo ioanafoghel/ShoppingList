@@ -1,6 +1,4 @@
-package com.example.ioana.productlist;
-
-import android.widget.ImageView;
+package com.example.ioana.productlist.model;
 
 /**
  * Created by Ioana on 24/02/2016.
@@ -12,6 +10,8 @@ public class Product {
         private double price;
         private double offerPrice;
         private int img;
+        private Shop shop;
+        private ProductList productList;
 
         public Product() {
         }
@@ -48,28 +48,24 @@ public class Product {
         public void setImg(int img){
             this.img=img;
         }
-
         public String getName() {
             return name;
         }
         public void setName(String name) {
             this.name = name;
         }
-
         public String getDescription() {
             return description;
         }
         public void setDescription(String description) {
             this.description = description;
         }
-
         public Double getPrice(){
         return price;
         }
         public void setPrice(Double price) {
             this.price = price;
         }
-
         public Double getOfferPrice(){
         return offerPrice;
     }
@@ -77,11 +73,22 @@ public class Product {
             this.offerPrice=offerPrice;
         }
 
+        public void setShop(Shop shop) {
+        this.shop = shop;
+    }
+        public Shop getShop() {
+        return this.shop;
+    }
+
+        public void setProductList(ProductList productList) {
+        this.productList = productList;
+    }
+        public ProductList getProductList() {
+        return this.productList;
+    }
 
         @Override
         public String toString() {
             return  name + "\t " + price + "\n" + description +"\t";
         }
-
-
 }

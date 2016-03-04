@@ -1,8 +1,6 @@
 package com.example.ioana.productlist;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.StringBufferInputStream;
+import com.example.ioana.productlist.model.*;
+
 import java.util.List;
 
 /**

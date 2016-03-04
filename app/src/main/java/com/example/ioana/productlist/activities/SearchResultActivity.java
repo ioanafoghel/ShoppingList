@@ -1,4 +1,4 @@
-package com.example.ioana.productlist;
+package com.example.ioana.productlist.activities;
 
 import android.app.Activity;
 import android.app.SearchManager;

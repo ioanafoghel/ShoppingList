@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ioana.productlist.model.Shop;
+
 import java.util.List;
 
 /**

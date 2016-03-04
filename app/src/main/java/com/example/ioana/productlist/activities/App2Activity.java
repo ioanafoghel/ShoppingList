@@ -1,13 +1,17 @@
-package com.example.ioana.productlist;
+package com.example.ioana.productlist.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.ioana.productlist.ProductAdapter;
+import com.example.ioana.productlist.R;
+import com.example.ioana.productlist.service.Service;
 
 public class App2Activity extends AppCompatActivity {
     private Service service= new Service();

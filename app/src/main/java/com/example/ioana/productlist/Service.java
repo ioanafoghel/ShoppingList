@@ -18,24 +18,24 @@ public class Service {
             double[] offers={12,25,38,18,20.9,30,30,32};
             int[] imgs={R.drawable.kinder_bueno,R.drawable.kinder_chocolate4,R.drawable.kinder_chocolate8,R.drawable.kinder_country,R.drawable.kinder_delice,R.drawable.kinder_pinguin,R.drawable.kinder_schoko_bons,R.drawable.kinder_surprise};
             String[] shopNames={"Aldi","Bilka","FØtex","Lidl","Rema 1000", "Netto"};
-            String[] shopsAddresses={"AAaa","BBb","Ccc","Ddd","Eee"};
+            String[] shopsAddresses={"AAaa","BBb","Ccc","Ddd","Eee","ffff"};
             int[] shopsImgs={R.drawable.aldi_icon,R.drawable.bilka_icon,R.drawable.fotex_icon,R.drawable.lidl_icon,R.drawable.rema_icon,R.drawable.netto_icon};
 
-            for (int i = 1; i < productNames.length; i++) {
+            for (int i = 0; i < productNames.length; i++) {
                Product product= new Product(imgs[i]," "+productNames[i]," "+productDescriptions[i], productPrice[i],offers[i]);
                 products.add(product);
             }
-            for(int j=1; j< shopNames.length;j++){
+
+            for(int j=0;j< shopNames.length;j++){
                 Shop shop=new Shop(shopsImgs[j], " "+shopNames[j]," "+shopsAddresses[j]);
                 shops.add(shop);
-
             }
         }
 
         public List<Product> getProducts() {
             return products;
         }
-    public List<Shop> getShops() {return  shops;}
+        public List<Shop> getShops() {return  shops;}
 
 
         public void addProduct(Product product) {
@@ -46,9 +46,8 @@ public class Service {
             products.remove(product);
         }
 
-    public void addShop(Shop shop) { shops.add(shop);
-    }
+        public void addShop(Shop shop) { shops.add(shop);}
 
-    public void removeShop(Shop shop) {shops.remove(shop);}
+        public void removeShop(Shop shop) {shops.remove(shop);}
     }
 

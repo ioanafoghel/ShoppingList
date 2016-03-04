@@ -17,16 +17,15 @@ import java.util.List;
 public class ShopAdapter extends ArrayAdapter<Shop> {
     LayoutInflater inflater;
     Context c;
+
     public ShopAdapter(Context context,int resource, List<Shop> shops) {
         super(context,resource,shops);
         this.c=context;
     }
-
     public View getView(int position, View convertView, ViewGroup parent){
         if (convertView == null) {
             inflater=(LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView=inflater.inflate(R.layout.shop, null);
-
         }
 
         ImageView textView1 = (ImageView) convertView.findViewById(R.id.shopImage);

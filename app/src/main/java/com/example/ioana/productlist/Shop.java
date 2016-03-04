@@ -11,7 +11,7 @@ public class Shop {
     public Shop() {
     }
 
-    public Shop(int img, String name, String address) {
+    public Shop (int img, String name, String address) {
         this.img=img;
         this.name = name;
         this.address = address;
@@ -24,7 +24,7 @@ public class Shop {
     }
 
     public Shop copy() {
-      Shop shop = new Shop();
+        Shop shop = new Shop();
         shop.img=img;
         shop.name = name;
         shop.address = address;
@@ -51,9 +51,9 @@ public class Shop {
     public void setAddress(String address) {
         this.address = address;
     }
+
     @Override
     public String toString() {
         return  name + "\t " + address;
     }
-
 }

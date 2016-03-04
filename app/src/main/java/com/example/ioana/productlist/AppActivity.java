@@ -15,6 +15,7 @@ import java.security.AccessControlContext;
  */
 public class AppActivity extends AppCompatActivity {
     Button button;
+    Button buttonShop;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,14 @@ public class AppActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PopUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonShop = (Button) findViewById(R.id.shopsButton);
+        buttonShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,ActivityShop.class);
                 startActivity(intent);
             }
         });

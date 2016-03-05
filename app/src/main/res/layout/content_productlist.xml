@@ -10,8 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ActivityShop"
-    tools:showIn="@layout/activity_list">
+    tools:context=".activities.ProductListsActivity"
+    tools:showIn="@layout/activity_productlist">
 
     <ListView
         android:id="@+id/listslistView"

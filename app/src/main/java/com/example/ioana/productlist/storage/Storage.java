@@ -2,7 +2,9 @@ package com.example.ioana.productlist.storage;
 
 import com.example.ioana.productlist.R;
 import com.example.ioana.productlist.model.Product;
+import com.example.ioana.productlist.model.ProductList;
 import com.example.ioana.productlist.model.Shop;
+import com.example.ioana.productlist.service.Service;
 
 import java.util.ArrayList;
 
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 public class Storage {
     private ArrayList<Product> products = new ArrayList<>();
     private ArrayList<Shop> shops = new ArrayList<>();
+    private ArrayList<ProductList> productLists = new ArrayList<>();
     private static Storage uniqueInstance;
 
     private Storage() {
@@ -52,6 +55,27 @@ public class Storage {
         product.setOfferPrice(offerPrice);
     }
 
+    public ArrayList<ProductList> getProductLists() {
+        return new ArrayList<ProductList>(productLists);
+    }
+
+    public void addProductList(ProductList productList) {
+        productLists.add(productList);
+    }
+
+    public void removeProductList(ProductList productList) {
+        productLists.remove(productList);
+    }
+    public  ProductList createProductList(String name)
+    {
+        ProductList productList = new ProductList(name);
+        uniqueInstance.addProductList(productList);
+        return productList;
+    }
+    public  void updateProductList(ProductList productList, String name)
+    {
+        productList.setName(name);
+    }
     public ArrayList<Shop> getShops() {
         return new ArrayList<Shop>(shops);
     }
@@ -76,6 +100,7 @@ public class Storage {
         shop.setAddress(address);
     }
 
+
     public  void createSomeObjects() {
         String[] productNames = {"Kinder Bueno", "Kinder Chocolate 4", "Kinder Chocolate 8", "Kinder Country", "Kinder Delice", "Kinder Pinguin", "Kinder Schoko-Bons", "Kinder Surprise"};
         String[] productDescriptions = {"23g", "100g", "200g", "30g", "50g", "100g", "230g", "12g"};
@@ -85,19 +110,35 @@ public class Storage {
         String[] shopNames = {"Aldi", "Bilka", "FØtex", "Lidl", "Rema 1000", "Netto"};
         String[] shopsAddresses = {"AAaa", "BBb", "Ccc", "Ddd", "Eee", "ffff"};
         int[] shopsImgs = {R.drawable.aldi_icon, R.drawable.bilka_icon, R.drawable.fotex_icon, R.drawable.lidl_icon, R.drawable.rema_icon, R.drawable.netto_icon};
+        String[] productListNames= {"Saturday snack", "Halloween  candy", "Kids rewards"};
         ArrayList<Product> products = new ArrayList<Product>();
         for (int i = 0; i < productNames.length; i++) {
             Product product = uniqueInstance.createProduct(imgs[i], " " + productNames[i], " " + productDescriptions[i], productPrice[i], offers[i]);
             products.add(product);
         }
         ArrayList<Shop> shops = new ArrayList<Shop>();
-        for (int j = 0; j < shopNames.length; j++) {
-            Shop shop = uniqueInstance.createShop(shopsImgs[j], " " + shopNames[j], " " + shopsAddresses[j]);
-            for (int i=0; i<productNames.length;i++){
-                Product product = uniqueInstance.createProduct(imgs[i], " " + productNames[i], " " + productDescriptions[i], productPrice[i], offers[i]);
+        for (int i = 0; i < shopNames.length; i++) {
+            Shop shop = uniqueInstance.createShop(shopsImgs[i], " " + shopNames[i], " " + shopsAddresses[i]);
+            for (int j=0; j<productNames.length; j++){
+                Product product = uniqueInstance.createProduct(imgs[j], " " + productNames[j], " " + productDescriptions[j], productPrice[j], offers[j]);
                 shop.addProductInShop(product);
             }
             shops.add(shop);
         }
+        ArrayList<ProductList> productLists = new ArrayList<ProductList>();
+        for (int i = 0; i < productListNames.length; i++) {
+            ProductList productList = uniqueInstance.createProductList(productListNames[i]);
+            for (int j=0; j<productNames.length; j++){
+                Product product = uniqueInstance.createProduct(imgs[j], " " + productNames[j], " " + productDescriptions[j], productPrice[j], offers[j]);
+                productList.addProductInList(product);
+            }
+            productLists.add(productList);
+        }
+
+        Shop s1 = Service.createShop(R.drawable.bilka_icon, "Bilka", "BBbb");
+        Product p1=Service.createProduct(R.drawable.kinder_bueno,"Kinder Bueno","23g",12.3,10.0);
+        s1.addProductInShop(p1);
+        ProductList l1=Service.createProductList("Christmas Shopping");
+        l1.addProductInList(p1);
     }
 }

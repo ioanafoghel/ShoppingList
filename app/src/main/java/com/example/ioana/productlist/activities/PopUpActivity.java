@@ -29,7 +29,7 @@ public class PopUpActivity extends Activity {
         SaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ActivityShop.class);
+                Intent intent = new Intent(context, ShopsActivity.class);
                 startActivity(intent);
             }
         });
@@ -38,7 +38,7 @@ public class PopUpActivity extends Activity {
         CancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AppActivity.class);
+                Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
             }
         });

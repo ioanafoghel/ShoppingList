@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
 
                 <activity
-                    android:name=".activities.AppActivity"
+                    android:name=".activities.MainActivity"
                     android:label="@string/app_name"
                     android:theme="@style/AppTheme">
                     <intent-filter>
@@ -27,15 +27,26 @@
 
                 <activity
                     android:label="@string/first_view"
-                    android:name=".activities.App2Activity"
+                    android:name=".activities.ProductsActivity"
                     android:theme="@style/AppTheme">
                 </activity>
 
                 <activity
                     android:label="@string/shops_list"
-                    android:name=".activities.ActivityShop"
+                    android:name=".activities.ShopsActivity"
                     android:theme="@style/AppTheme">
                 </activity>
+
+        <activity
+            android:label="@string/productList_list"
+            android:name=".activities.ProductListsActivity"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:label="@string/particularItems_list"
+            android:name=".activities.ProductsInListActivity"
+            android:theme="@style/AppTheme">
+        </activity>
                 <!-- <activity
                      android:launchMode="singleTop"
                      android:name=".SearchResultActivity" >

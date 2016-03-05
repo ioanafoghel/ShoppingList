@@ -11,9 +11,10 @@ import com.example.ioana.productlist.R;
 /**
  * Created by Ioana on 02/03/2016.
  */
-public class AppActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     Button button;
     Button buttonShop;
+    Button buttonList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,15 @@ public class AppActivity extends AppCompatActivity {
         buttonShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ActivityShop.class);
+                Intent intent = new Intent(context, ShopsActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonList = (Button) findViewById(R.id.listsButton);
+        buttonList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductListsActivity.class);
                 startActivity(intent);
             }
         });

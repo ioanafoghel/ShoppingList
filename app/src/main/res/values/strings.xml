@@ -10,6 +10,8 @@
     <string name="action_hint">Search product</string>
     <string name="action_popup">Enter list name</string>
     <string name="shops_list">Select shop</string>
+    <string name="productList_list">Your lists:</string>
+    <string name="particularItems_list">Your items:</string>
 
 
 </resources>

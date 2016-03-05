@@ -13,13 +13,13 @@ import com.example.ioana.productlist.ProductAdapter;
 import com.example.ioana.productlist.R;
 import com.example.ioana.productlist.service.Service;
 
-public class App2Activity extends AppCompatActivity {
+public class ProductsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_product);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
@@ -32,9 +32,7 @@ public class App2Activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
-                Toast.makeText(App2Activity.this,
-                        listView.getItemAtPosition(position) + " " +
-                                getText(R.string.clicked), Toast.LENGTH_SHORT).show();
+
             }
         });
     }

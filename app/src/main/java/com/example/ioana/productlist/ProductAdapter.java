@@ -28,8 +28,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
     public View getView(int position, View convertView, ViewGroup parent){
       if (convertView == null) {
             inflater=(LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView=inflater.inflate(R.layout.model, null);
-
+            convertView=inflater.inflate(R.layout.product, null);
         }
 
         ImageView textView1 = (ImageView) convertView.findViewById(R.id.imageView1);

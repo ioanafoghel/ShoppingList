@@ -15,7 +15,6 @@ import com.example.ioana.productlist.service.Service;
  * Created by Ioana on 04/03/2016.
  */
 public class ActivityShop extends AppCompatActivity {
-    private Service service= new Service();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,7 @@ public class ActivityShop extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.shopslistView);
         ShopAdapter shopArrayAdapter
-                = new ShopAdapter(this, 0, service.getShops());
+                = new ShopAdapter(this, 0, Service.getShops());
         listView.setAdapter(shopArrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

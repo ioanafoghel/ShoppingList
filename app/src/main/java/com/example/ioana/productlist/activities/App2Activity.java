@@ -14,19 +14,18 @@ import com.example.ioana.productlist.R;
 import com.example.ioana.productlist.service.Service;
 
 public class App2Activity extends AppCompatActivity {
-    private Service service= new Service();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
-
         final ListView listView = (ListView) findViewById(R.id.listView);
         ProductAdapter productArrayAdapter
-                = new ProductAdapter(this, 0, service.getProducts());
+                = new ProductAdapter(this, 0, Service.getProducts());
         listView.setAdapter(productArrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

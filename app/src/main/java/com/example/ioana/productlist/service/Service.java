@@ -30,6 +30,10 @@ public class Service {
     {
         Storage.getInstance().removeProduct(product);
     }
+    public static void removeProduct(int productIndex)
+    {
+        Storage.getInstance().removeProduct(productIndex);
+    }
 
     public static void updateProduct(Product product, int img, String name, String description, Double price, Double offerPrice)
     {
@@ -83,6 +87,10 @@ public class Service {
     public static void updateProductList(ProductList productList, String name)
     {
         productList.setName(name);
+    }
+    public static void removeProductList(int productIndex)
+    {
+        Storage.getInstance().removeProductList(productIndex);
     }
 
 }

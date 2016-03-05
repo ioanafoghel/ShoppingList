@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.ioana.productlist.activities.ProductsInListActivity;
 import com.example.ioana.productlist.model.ProductList;
+import com.example.ioana.productlist.service.Service;
 
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ProductListAdapter extends ArrayAdapter<ProductList> {
         this.c = context;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.productlist, null);
@@ -47,6 +48,14 @@ public class ProductListAdapter extends ArrayAdapter<ProductList> {
                 Intent shopInfo = new Intent(c, ProductsInListActivity.class);
                 c.startActivity(shopInfo);
 
+            }
+        });
+        buttonName.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Service.removeProductList(position);
+                notifyDataSetChanged();
+                return true;
             }
         });
         return convertView;

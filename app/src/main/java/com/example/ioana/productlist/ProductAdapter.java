@@ -1,6 +1,7 @@
 package com.example.ioana.productlist;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             convertView=inflater.inflate(R.layout.product, null);
         }
 
-        ImageView textView1 = (ImageView) convertView.findViewById(R.id.imageView1);
+        final ImageView textView1 = (ImageView) convertView.findViewById(R.id.imageView1);
         TextView textView2 = (TextView) convertView.findViewById(R.id.productName);
         TextView textView3 = (TextView) convertView.findViewById(R.id.productDescription);
         TextView textView4 = (TextView) convertView.findViewById(R.id.productPrice);
@@ -50,6 +51,15 @@ public class ProductAdapter extends ArrayAdapter<Product> {
                 Toast.makeText(getContext(), product.getName() + " " +
                                 getContext().getText(R.string.clicked),
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+        convertView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                v.setEnabled(false);
+                v.setBackgroundColor(Color.BLUE);
+                notifyDataSetChanged();
+                return true;
             }
         });
         return convertView;

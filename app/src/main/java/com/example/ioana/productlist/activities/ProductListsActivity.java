@@ -4,9 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ioana.productlist.ProductListAdapter;
 import com.example.ioana.productlist.R;
@@ -25,7 +29,7 @@ public class ProductListsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
         final ListView listView = (ListView) findViewById(R.id.listslistView);
-        ProductListAdapter productListAdapter
+        final ProductListAdapter productListAdapter
                 = new ProductListAdapter(this, 0, Service.getProductLists());
         listView.setAdapter(productListAdapter);
 

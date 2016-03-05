@@ -24,7 +24,7 @@ public class ProductsActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
         final ListView listView = (ListView) findViewById(R.id.listView);
-        ProductAdapter productArrayAdapter
+        final ProductAdapter productArrayAdapter
                 = new ProductAdapter(this, 0, Service.getProducts());
         listView.setAdapter(productArrayAdapter);
 
@@ -33,6 +33,15 @@ public class ProductsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
 
+            }
+        });
+        listView.setAdapter(productArrayAdapter);
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Service.removeProduct(position);
+                productArrayAdapter.notifyDataSetChanged();
+                return true;
             }
         });
     }

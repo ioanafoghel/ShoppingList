@@ -30,7 +30,7 @@ public class Storage {
 
 
     public ArrayList<Product> getProducts() {
-        return new ArrayList<Product>(products);
+        return products;
     }
 
     public void addProduct(Product product) {
@@ -39,6 +39,9 @@ public class Storage {
 
     public void removeProduct(Product product) {
         products.remove(product);
+    }
+    public void removeProduct(int productIndex) {
+        products.remove(productIndex);
     }
     public Product createProduct(int img, String name, String description, Double price, Double offerPrice)
     {
@@ -56,7 +59,7 @@ public class Storage {
     }
 
     public ArrayList<ProductList> getProductLists() {
-        return new ArrayList<ProductList>(productLists);
+        return productLists;
     }
 
     public void addProductList(ProductList productList) {
@@ -65,6 +68,9 @@ public class Storage {
 
     public void removeProductList(ProductList productList) {
         productLists.remove(productList);
+    }
+    public void removeProductList(int productIndex) {
+        productLists.remove(productIndex);
     }
     public  ProductList createProductList(String name)
     {
@@ -77,7 +83,7 @@ public class Storage {
         productList.setName(name);
     }
     public ArrayList<Shop> getShops() {
-        return new ArrayList<Shop>(shops);
+        return shops;
     }
 
     public void addShop(Shop shop) {

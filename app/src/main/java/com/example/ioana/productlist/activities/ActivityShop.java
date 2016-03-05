@@ -1,5 +1,6 @@
 package com.example.ioana.productlist.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,7 +36,10 @@ public class ActivityShop extends AppCompatActivity {
                 Toast.makeText(ActivityShop.this,
                         listView.getItemAtPosition(position) + " " +
                                 getText(R.string.clicked), Toast.LENGTH_SHORT).show();
-            }
-        });
+                        Intent shopInfo = new Intent(ActivityShop.this, App2Activity.class);
+                        startActivity(shopInfo);
+                    }
+                });
+
     }
 }

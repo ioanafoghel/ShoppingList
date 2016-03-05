@@ -93,6 +93,10 @@ public class Storage {
         ArrayList<Shop> shops = new ArrayList<Shop>();
         for (int j = 0; j < shopNames.length; j++) {
             Shop shop = uniqueInstance.createShop(shopsImgs[j], " " + shopNames[j], " " + shopsAddresses[j]);
+            for (int i=0; i<productNames.length;i++){
+                Product product = uniqueInstance.createProduct(imgs[i], " " + productNames[i], " " + productDescriptions[i], productPrice[i], offers[i]);
+                shop.addProductInShop(product);
+            }
             shops.add(shop);
         }
     }

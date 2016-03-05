@@ -29,7 +29,7 @@ public class PopUpActivity extends Activity {
         SaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, App2Activity.class);
+                Intent intent = new Intent(context, ActivityShop.class);
                 startActivity(intent);
             }
         });

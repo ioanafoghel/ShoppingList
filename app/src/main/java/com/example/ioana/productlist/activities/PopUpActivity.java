@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+
 import com.example.ioana.productlist.R;
+import com.example.ioana.productlist.service.Service;
 
 /**
  * Created by Ioana on 02/03/2016.
@@ -14,6 +17,7 @@ import com.example.ioana.productlist.R;
 public class PopUpActivity extends Activity {
     Button SaveBtn;
     Button CancelBtn;
+    EditText inputName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,12 +29,18 @@ public class PopUpActivity extends Activity {
     public void addListenerOnButton() {
 
         final Context context = this;
+        inputName = (EditText) findViewById(R.id.editText);
         SaveBtn = (Button) findViewById(R.id.saveButton);
         SaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!inputName.getText().toString().equals(""))
+                {
+                Service.createProductList(inputName.getText().toString());
+                }
                 Intent intent = new Intent(context, ShopsActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -40,6 +50,7 @@ public class PopUpActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

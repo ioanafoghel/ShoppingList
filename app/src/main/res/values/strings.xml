@@ -12,6 +12,7 @@
     <string name="shops_list">Select shop</string>
     <string name="productList_list">Your lists:</string>
     <string name="particularItems_list">Your items:</string>
+    <string name="your_lists">Your lists:</string>
 
 
 </resources>

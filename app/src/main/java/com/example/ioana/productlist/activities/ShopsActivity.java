@@ -23,6 +23,7 @@ public class ShopsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
+
         final ListView listView = (ListView) findViewById(R.id.shopslistView);
         ShopAdapter shopArrayAdapter
                 = new ShopAdapter(this, 0, Service.getShops());
@@ -33,6 +34,7 @@ public class ShopsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
                         Intent shopInfo = new Intent(ShopsActivity.this, ProductsActivity.class);
+                        shopInfo.putExtra("shopIndex",position);
                         startActivity(shopInfo);
                     }
                 });

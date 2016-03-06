@@ -92,6 +92,9 @@ public class Service {
     {
         Storage.getInstance().removeProductList(productIndex);
     }
+    public static void addProductToList(int listIndex, int shopIndex, int productIndex){
+        Storage.getInstance().addProductToList(listIndex,shopIndex,productIndex);
+    }
 
 }
 

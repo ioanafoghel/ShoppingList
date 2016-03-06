@@ -47,6 +47,11 @@
             android:name=".activities.ProductsInListActivity"
             android:theme="@style/AppTheme">
         </activity>
+        <activity
+            android:label="@string/your_lists"
+            android:name=".activities.PopUpMenuActivity"
+            android:theme="@style/Theme.AppCompat.Light.Dialog">
+        </activity>
                 <!-- <activity
                      android:launchMode="singleTop"
                      android:name=".SearchResultActivity" >

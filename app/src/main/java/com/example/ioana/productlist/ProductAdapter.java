@@ -1,16 +1,20 @@
 package com.example.ioana.productlist;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ioana.productlist.activities.PopUpMenuActivity;
 import com.example.ioana.productlist.model.*;
+import com.example.ioana.productlist.service.Service;
 
 import java.util.List;
 
@@ -37,6 +41,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         TextView textView3 = (TextView) convertView.findViewById(R.id.productDescription);
         TextView textView4 = (TextView) convertView.findViewById(R.id.productPrice);
         TextView textView5 = (TextView) convertView.findViewById(R.id.offerPrice);
+        ImageButton imgBtn= (ImageButton) convertView.findViewById(R.id.imageButton);
         final Product product = (Product) getItem(position);
 
         textView1.setImageResource(product.getImg());
@@ -45,9 +50,21 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         textView4.setText("Price: "+product.getPrice());
         textView5.setText("Offer: "+product.getOfferPrice());
 
-        textView1.setOnClickListener(new View.OnClickListener() {
+        imgBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(c, PopUpMenuActivity.class);
+                c.startActivity(intent);
+
+            }
+        });
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setEnabled(false);
+                v.setBackgroundColor(Color.GRAY);
                 Toast.makeText(getContext(), product.getName() + " " +
                                 getContext().getText(R.string.clicked),
                         Toast.LENGTH_SHORT).show();

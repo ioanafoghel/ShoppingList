@@ -118,7 +118,7 @@ public class Storage {
         int[] shopsImgs = {R.drawable.aldi_icon, R.drawable.bilka_icon, R.drawable.fotex_icon, R.drawable.lidl_icon, R.drawable.rema_icon, R.drawable.netto_icon};
         String[] productListNames= {"Saturday snack", "Halloween  candy", "Kids rewards"};
         ArrayList<Product> products = new ArrayList<Product>();
-        for (int i = 0; i < productNames.length; i++) {
+      /*  for (int i = 0; i < productNames.length; i++) {
             Product product = uniqueInstance.createProduct(imgs[i], " " + productNames[i], " " + productDescriptions[i], productPrice[i], offers[i]);
             products.add(product);
         }
@@ -146,5 +146,16 @@ public class Storage {
         s1.addProductInShop(p1);
         ProductList l1=Service.createProductList("Christmas Shopping");
         l1.addProductInList(p1);
+    }*/
+
+        Shop s1 = Service.createShop(R.drawable.bilka_icon, "Bilka", "BBbb");
+        Product p1=Service.createProduct(R.drawable.kinder_bueno,"Kinder Bueno","23g",12.3,10.0);
+        s1.addProductInShop(p1);}
+    public void addProductToList(int listIndex, int shopIndex, int productIndex){
+        ProductList productList= getProductLists().get(listIndex);
+        Shop shop= getShops().get(shopIndex);
+        Product product = shop.getProductsInShop().get(productIndex);
+        productList.addProductInList(product);
     }
+
 }

@@ -1,19 +1,29 @@
 package com.example.ioana.productlist.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.ioana.productlist.ProductAdapter;
 import com.example.ioana.productlist.R;
+import com.example.ioana.productlist.model.Product;
 import com.example.ioana.productlist.service.Service;
 
-public class ProductsActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class ProductsActivity extends AppCompatActivity implements Serializable {
+    ImageButton SelectBtn;
+    final Context context = this;
+    int shopIndex ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,12 @@ public class ProductsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            shopIndex = extras.getInt("shopIndex");
+        }
+
+
 
         final ListView listView = (ListView) findViewById(R.id.listView);
         final ProductAdapter productArrayAdapter
@@ -32,18 +48,25 @@ public class ProductsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
-
+                Integer selectedProduct= position;
+                Intent intent= new Intent(context, PopUpMenuActivity.class);
+                intent.putExtra("productObject", selectedProduct);
+                intent.putExtra("shopIndex",shopIndex);
+                startActivity(intent);
             }
         });
-        listView.setAdapter(productArrayAdapter);
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+    }
+    public void addListenerOnButton() {
+        SelectBtn = (ImageButton) findViewById(R.id.imageButton);
+        SelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Service.removeProduct(position);
-                productArrayAdapter.notifyDataSetChanged();
-                return true;
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PopUpMenuActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
+
     }
 
     @Override

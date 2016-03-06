@@ -48,7 +48,7 @@ public class ProductsActivity extends AppCompatActivity implements Serializable 
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
-                Integer selectedProduct= position;
+                int selectedProduct= position;
                 Intent intent= new Intent(context, PopUpMenuActivity.class);
                 intent.putExtra("productObject", selectedProduct);
                 intent.putExtra("shopIndex",shopIndex);

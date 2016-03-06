@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.ioana.productlist.PopUpMenuListAdapter;
 import com.example.ioana.productlist.ProductListAdapter;
 import com.example.ioana.productlist.R;
 import com.example.ioana.productlist.ShopAdapter;
@@ -35,18 +36,16 @@ public class PopUpMenuActivity extends AppCompatActivity {
         }
 
         final ListView listView = (ListView) findViewById(R.id.listslistView);
-        final ProductListAdapter productListAdapter
-                = new ProductListAdapter(this, 0, Service.getProductLists());
-        listView.setAdapter(productListAdapter);
+        final PopUpMenuListAdapter popUpMenuAdapter
+                = new PopUpMenuListAdapter(this, 0, Service.getProductLists());
+        listView.setAdapter(popUpMenuAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view, int position, long id) {
                 parent.getItemAtPosition(position);
-                Intent shopInfo = new Intent(PopUpMenuActivity.this, ProductListsActivity.class);
                 Service.addProductToList(position,shopIndex,productIndex);
-                startActivity(shopInfo);
             }
         });
     }

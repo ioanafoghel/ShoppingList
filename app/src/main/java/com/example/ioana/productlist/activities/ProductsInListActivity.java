@@ -18,16 +18,21 @@ import com.example.ioana.productlist.service.Service;
  * Created by Ioana on 05/03/2016.
  */
 public class ProductsInListActivity extends AppCompatActivity {
+int listIndex;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            listIndex = extras.getInt("listIndex");
+        }
 
         final ListView listView = (ListView) findViewById(R.id.listView);
         ProductAdapter productArrayAdapter
-                = new ProductAdapter(this, 0, Service.getProducts());
+                = new ProductAdapter(this, 0, Service.getProductsForList(listIndex).getProductsInList());
         listView.setAdapter(productArrayAdapter);
     }
     public boolean onCreateOptionsMenu(Menu menu) {

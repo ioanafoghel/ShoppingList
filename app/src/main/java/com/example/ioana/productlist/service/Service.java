@@ -19,9 +19,9 @@ public class Service {
         return Storage.getInstance().getProducts();
     }
 
-    public static Product createProduct(int img, String name, String description, Double price, Double offerPrice)
+    public static Product createProduct(int img, String name, String description, Double price, Double offerPrice, int unit)
     {
-        Product product = new Product(img,name, description, price,offerPrice);
+        Product product = new Product(img,name, description, price,offerPrice, unit);
         Storage.getInstance().addProduct(product);
         return product;
     }
@@ -35,13 +35,14 @@ public class Service {
         Storage.getInstance().removeProduct(productIndex);
     }
 
-    public static void updateProduct(Product product, int img, String name, String description, Double price, Double offerPrice)
+    public static void updateProduct(Product product, int img, String name, String description, Double price, Double offerPrice, int unit)
     {
         product.setImg(img);
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
         product.setOfferPrice(offerPrice);
+        product.setUnit(unit);
     }
 
     public static ArrayList<Shop> getShops()
@@ -93,9 +94,12 @@ public class Service {
         Storage.getInstance().removeProductList(productIndex);
     }
     public static void addProductToList(int listIndex, int shopIndex, int productIndex){
-        Storage.getInstance().addProductToList(listIndex,shopIndex,productIndex);
+        Storage.getInstance().addProductToList(listIndex, shopIndex, productIndex);
     }
 
+    public static  ProductList getProductsForList(int listIndex) {
+      return Storage.getInstance().getProductAtIndex(listIndex);
+        }
 }
 
 

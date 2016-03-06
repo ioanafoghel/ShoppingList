@@ -9,6 +9,7 @@ public class Product {
         private String description;
         private double price;
         private double offerPrice;
+        private int unit;
         private int img;
         private Shop shop;
         private ProductList productList;
@@ -16,12 +17,13 @@ public class Product {
         public Product() {
         }
 
-        public Product(int img, String name, String description, Double price, Double offerPrice) {
+        public Product(int img, String name, String description, Double price, Double offerPrice, int unit) {
             this.img=img;
             this.name = name;
             this.description = description;
             this.price = price;
             this.offerPrice=offerPrice;
+            this.unit=unit;
         }
 
         public void update(Product product) {
@@ -30,6 +32,7 @@ public class Product {
             description = product.description;
             price = product.price;
             offerPrice=product.offerPrice;
+            unit=product.unit;
         }
 
         public Product copy() {
@@ -39,6 +42,7 @@ public class Product {
             product.description = description;
             product.price=price;
             product.offerPrice=offerPrice;
+            product.unit=unit;
             return product;
         }
 
@@ -72,6 +76,8 @@ public class Product {
         public void setOfferPrice(Double offerPrice){
             this.offerPrice=offerPrice;
         }
+    public int getUnit(){return unit;}
+    public void setUnit(int unit){this.unit=unit;}
 
         public void setShop(Shop shop) {
         this.shop = shop;

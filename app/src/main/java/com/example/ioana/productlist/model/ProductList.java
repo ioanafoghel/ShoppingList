@@ -10,6 +10,7 @@ public class ProductList {
     private ArrayList<Product> productsInList = new ArrayList<Product>();
 
     public ProductList() {
+
     }
 
     public ProductList(String name) {

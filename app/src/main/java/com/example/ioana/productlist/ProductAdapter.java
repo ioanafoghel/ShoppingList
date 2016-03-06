@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,12 +38,16 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         }
 
         final ImageView textView1 = (ImageView) convertView.findViewById(R.id.imageView1);
-        TextView textView2 = (TextView) convertView.findViewById(R.id.productName);
-        TextView textView3 = (TextView) convertView.findViewById(R.id.productDescription);
-        TextView textView4 = (TextView) convertView.findViewById(R.id.productPrice);
-        TextView textView5 = (TextView) convertView.findViewById(R.id.offerPrice);
-        ImageButton imgBtn= (ImageButton) convertView.findViewById(R.id.imageButton);
+        final TextView textView2 = (TextView) convertView.findViewById(R.id.productName);
+        final TextView textView3 = (TextView) convertView.findViewById(R.id.productDescription);
+        final TextView textView4 = (TextView) convertView.findViewById(R.id.productPrice);
+        final TextView textView5 = (TextView) convertView.findViewById(R.id.offerPrice);
+        final TextView textView6 = (TextView) convertView.findViewById(R.id.numberTextId);
         final Product product = (Product) getItem(position);
+        ImageButton imgBtn= (ImageButton) convertView.findViewById(R.id.imageButton);
+        Button btnPlus= (Button) convertView.findViewById(R.id.plusButton);
+        Button btnMinus= (Button) convertView.findViewById(R.id.minusButton);
+
 
         textView1.setImageResource(product.getImg());
         textView2.setText(product.getName());
@@ -79,6 +84,40 @@ public class ProductAdapter extends ArrayAdapter<Product> {
                 return true;
             }
         });
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String[] standardVolume = product.getDescription().split(" ");
+                String[] selectedVolume = ((String) textView3.getText()).split(" ");
+                double standard = Double.parseDouble(standardVolume[0]);
+                double selected = Double.parseDouble(selectedVolume[0]) + standard;
+                textView3.setText(selected + " " + standardVolume[1]);
+                //updates offer and normal prices displayed
+                textView4.setText("Price: " + Math.round((selected / standard * product.getPrice()) * 100d) / 100d);
+                textView5.setText("Offer: " + Math.round((selected / standard * product.getOfferPrice()) * 100d) / 100d);
+                textView6.setText("" + (Integer.parseInt((String) textView6.getText()) + 1));
+            }
+        });
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String[] standardVolume=product.getDescription().split(" ");
+                String[] selectedVolume=((String)textView3.getText()).split(" ");
+                double standard=Double.parseDouble(standardVolume[0]);
+                double selected=Double.parseDouble(selectedVolume[0]);
+                if (standard<selected) {
+                    selected = selected - standard;
+                    textView3.setText(selected + " " + standardVolume[1]);
+                    //updates offer and normal prices displayed
+                    textView4.setText("Price: "+Math.round((selected/standard*product.getPrice())* 100d)/100d);
+                    textView5.setText("Offer: "+Math.round((selected / standard * product.getOfferPrice())* 100d)/100d);
+                    textView6.setText(""+(Integer.parseInt((String) textView6.getText()) - 1));
+                }
+            }
+        });
+
         return convertView;
     }
 }

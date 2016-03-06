@@ -28,6 +28,7 @@ public class ProductListsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.home_icon);
 
+
         final ListView listView = (ListView) findViewById(R.id.listslistView);
         final ProductListAdapter productListAdapter
                 = new ProductListAdapter(this, 0, Service.getProductLists());
@@ -39,6 +40,7 @@ public class ProductListsActivity extends AppCompatActivity {
                                     View view, int position, long id) {
 
                 Intent shopInfo = new Intent(context, ProductsInListActivity.class);
+                shopInfo.putExtra("listIndex",position);
                 startActivity(shopInfo);
             }
         });

@@ -7,6 +7,7 @@ import com.example.ioana.productlist.model.Shop;
 import com.example.ioana.productlist.service.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ioana on 04/03/2016.
@@ -40,22 +41,24 @@ public class Storage {
     public void removeProduct(Product product) {
         products.remove(product);
     }
+
     public void removeProduct(int productIndex) {
         products.remove(productIndex);
     }
-    public Product createProduct(int img, String name, String description, Double price, Double offerPrice)
-    {
-        Product product = new Product(img,name, description, price,offerPrice);
+
+    public Product createProduct(int img, String name, String description, Double price, Double offerPrice, int unit) {
+        Product product = new Product(img, name, description, price, offerPrice, unit);
         uniqueInstance.addProduct(product);
         return product;
     }
-    public void updateProduct(Product product, int img, String name, String description, Double price, Double offerPrice)
-    {
+
+    public void updateProduct(Product product, int img, String name, String description, Double price, Double offerPrice, int unit) {
         product.setImg(img);
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
         product.setOfferPrice(offerPrice);
+        product.setUnit(unit);
     }
 
     public ArrayList<ProductList> getProductLists() {
@@ -69,19 +72,21 @@ public class Storage {
     public void removeProductList(ProductList productList) {
         productLists.remove(productList);
     }
+
     public void removeProductList(int productIndex) {
         productLists.remove(productIndex);
     }
-    public  ProductList createProductList(String name)
-    {
+
+    public ProductList createProductList(String name) {
         ProductList productList = new ProductList(name);
         uniqueInstance.addProductList(productList);
         return productList;
     }
-    public  void updateProductList(ProductList productList, String name)
-    {
+
+    public void updateProductList(ProductList productList, String name) {
         productList.setName(name);
     }
+
     public ArrayList<Shop> getShops() {
         return shops;
     }
@@ -93,32 +98,36 @@ public class Storage {
     public void removeShop(Shop shop) {
         shops.remove(shop);
     }
-    public  Shop createShop(int img, String name, String address)
-    {
+
+    public Shop createShop(int img, String name, String address) {
         Shop shop = new Shop(img, name, address);
         uniqueInstance.addShop(shop);
         return shop;
     }
-    public  void updateShop(Shop shop, int img, String name, String address)
-    {
+
+    public void updateShop(Shop shop, int img, String name, String address) {
         shop.setShopImg(img);
         shop.setName(name);
         shop.setAddress(address);
     }
 
+    public ProductList getProductAtIndex(int listIndex) {
+        return productLists.get(listIndex);
+    }
 
-    public  void createSomeObjects() {
+
+    public void createSomeObjects() {
         String[] productNames = {"Kinder Bueno", "Kinder Chocolate 4", "Kinder Chocolate 8", "Kinder Country", "Kinder Delice", "Kinder Pinguin", "Kinder Schoko-Bons", "Kinder Surprise"};
-        String[] productDescriptions = {"23g", "100g", "200g", "30g", "50g", "100g", "230g", "12g"};
+        String[] productDescriptions = {"23 g", "100 g", "200 g", "30 g", "50 g", "100 g", "230 g", "12 g"};
         double[] productPrice = {15, 30, 40, 20, 23.9, 50, 50, 35};
         double[] offers = {12, 25, 38, 18, 20.9, 30, 30, 32};
         int[] imgs = {R.drawable.kinder_bueno, R.drawable.kinder_chocolate4, R.drawable.kinder_chocolate8, R.drawable.kinder_country, R.drawable.kinder_delice, R.drawable.kinder_pinguin, R.drawable.kinder_schoko_bons, R.drawable.kinder_surprise};
         String[] shopNames = {"Aldi", "Bilka", "FØtex", "Lidl", "Rema 1000", "Netto"};
         String[] shopsAddresses = {"AAaa", "BBb", "Ccc", "Ddd", "Eee", "ffff"};
         int[] shopsImgs = {R.drawable.aldi_icon, R.drawable.bilka_icon, R.drawable.fotex_icon, R.drawable.lidl_icon, R.drawable.rema_icon, R.drawable.netto_icon};
-        String[] productListNames= {"Saturday snack", "Halloween  candy", "Kids rewards"};
-        ArrayList<Product> products = new ArrayList<Product>();
-      /*  for (int i = 0; i < productNames.length; i++) {
+        String[] productListNames = {"Saturday snack", "Halloween  candy", "Kids rewards"};
+      /*  ArrayList<Product> products = new ArrayList<Product>();
+       for (int i = 0; i < productNames.length; i++) {
             Product product = uniqueInstance.createProduct(imgs[i], " " + productNames[i], " " + productDescriptions[i], productPrice[i], offers[i]);
             products.add(product);
         }
@@ -148,12 +157,15 @@ public class Storage {
         l1.addProductInList(p1);
     }*/
 
-        Shop s1 = Service.createShop(R.drawable.bilka_icon, "Bilka", "BBbb");
-        Product p1=Service.createProduct(R.drawable.kinder_bueno,"Kinder Bueno","23g",12.3,10.0);
-        s1.addProductInShop(p1);}
-    public void addProductToList(int listIndex, int shopIndex, int productIndex){
-        ProductList productList= getProductLists().get(listIndex);
-        Shop shop= getShops().get(shopIndex);
+        Shop s1 = createShop(R.drawable.bilka_icon, "Bilka", "BBbb");
+        Product p1 = createProduct(R.drawable.kinder_bueno, "Kinder Bueno", "23 g", 12.3, 10.0, 1);
+        s1.addProductInShop(p1);
+        ProductList l1 = createProductList("Christmas Shopping");
+    }
+
+    public void addProductToList(int listIndex, int shopIndex, int productIndex) {
+        ProductList productList = getProductLists().get(listIndex);
+        Shop shop = getShops().get(shopIndex);
         Product product = shop.getProductsInShop().get(productIndex);
         productList.addProductInList(product);
     }
